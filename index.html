@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>AgroComercios | La Red Industrial y Agropecuaria</title>
+        
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+        
+        <link rel="stylesheet" href="estilo/estilo.css">
+    </head>
+    <body>
+
+        <!--  ---------------------------------------------------------------------------- -->
+        <!-- SECCION 1: TOPBAR Y HEADER -->
+        <!-- ----------------------------------------------------------------------------- -->
+        <div class="topbar-nexo">
+            <p>AgroComercios es parte de la red de <a href="https://comerciantes.com.ar" target="_blank">Comerciantes.com.ar</a></p>
+        </div>
+
+        <header class="main-header">
+            <div class="header-container">
+                <div class="logo">
+                    <span class="logo-agro">AGRO</span><span class="logo-comercios">COMERCIOS</span>
+                </div>
+                    
+                <button class="menu-toggle" aria-label="Abrir menú">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <nav class="nav-menu">
+                    <ul>
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#">Sectores</a></li>
+                        <li><a href="#">Mapa</a></li>
+                        <li><a href="#">Contacto</a></li>
+                        <li class="mobile-only"><a href="#" class="btn-register">REGISTRAR MI EMPRESA</a></li>
+                    </ul>
+                </nav>
+
+            </div>
+        </header>
+
+        <section class="hero-section">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1>Red Industrial y <span>Agropecuaria</span></h1>
+                <p class="hero-subtitle">Conectamos la fuerza metalúrgica con el potencial del campo en un solo directorio especializado.</p>
+                    
+                <div class="search-box">
+                    <div class="search-input">
+                        <i class="fa fa-search"></i>
+                        <input type="text" placeholder="¿Qué insumo o servicio buscás?">
+                    </div>
+                    <div class="search-location">
+                        <i class="fa fa-map-marker-alt"></i>
+                        <input type="text" placeholder="Localidad">
+                    </div>
+                    <button class="btn-search">BUSCAR SOLUCIONES</button>
+                </div>
+
+                <div class="category-pills">
+                    <a href="#" class="pill">Maquinaria</a>
+                    <a href="#" class="pill">Insumos</a>
+                    <a href="#" class="pill">Servicios</a>
+                    <a href="#" class="pill">Logística</a>
+                    <a href="#" class="pill">Ferretería</a>
+                    <a href="#" class="pill">Veterinaria</a>
+                </div>
+            </div>
+        </section>
+
+        <!--  ---------------------------------------------------------------------------- -->
+        <!-- SECCION 2: EMPRESAS DESTACADAS -->
+        <!-- ----------------------------------------------------------------------------- -->
+        <section class="industrias-slider">
+            <div class="container-slider-extra">
+                
+                <div class="slider-header">
+                <h2>Industrias <span>Destacadas</span></h2>
+                <p>Explorá los sectores con mayor fuerza en la zona núcleo</p>
+                </div>
+
+                <div class="slider-container">
+                <button class="nav-arrow left-arrow" onclick="scrollSlider(-1)" aria-label="Anterior">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+
+                <div class="slider-wrapper" id="sliderWrapper">
+                    
+                    <div class="industry-card">
+                    <span class="category-badge">Tecnología</span>
+                    <img src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&q=80&w=800" alt="Agricultura">
+                    <div class="card-content">
+                        <h3>Agricultura de Precisión</h3>
+                        <p>Optimiza el rendimiento con sensores de última generación.</p>
+                        <a href="#" class="btn-ver">Ver Industria</a>
+                    </div>
+                    </div>
+
+                    <div class="industry-card">
+                    <span class="category-badge">Ganadería</span>
+                    <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&q=80&w=800" alt="Ganadería">
+                    <div class="card-content">
+                        <h3>Ganadería Inteligente</h3>
+                        <p>Monitoreo en tiempo real para mejorar la salud animal.</p>
+                        <a href="#" class="btn-ver">Ver Industria</a>
+                    </div>
+                    </div>
+
+                    <div class="industry-card">
+                    <span class="category-badge">Maquinaria</span>
+                    <img src="https://images.unsplash.com/photo-1595841696677-6489ff3f8cd1?auto=format&fit=crop&q=80&w=800" alt="Maquinaria">
+                    <div class="card-content">
+                        <h3>Maquinaria Pesada</h3>
+                        <p>Potencia y autonomía para grandes extensiones.</p>
+                        <a href="#" class="btn-ver">Ver Industria</a>
+                    </div>
+                    </div>
+
+                    <div class="industry-card">
+                    <span class="category-badge">Insumos</span>
+                    <img src="https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&q=80&w=800" alt="Semillas">
+                    <div class="card-content">
+                        <h3>Semillas y Fertilizantes</h3>
+                        <p>Genética avanzada para cultivos más resistentes.</p>
+                        <a href="#" class="btn-ver">Ver Industria</a>
+                    </div>
+                    </div>
+
+                    <div class="industry-card">
+                    <span class="category-badge">Logística</span>
+                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800" alt="Logística">
+                    <div class="card-content">
+                        <h3>Transporte y Acopio</h3>
+                        <p>Logística eficiente para el traslado de cosecha.</p>
+                        <a href="#" class="btn-ver">Ver Industria</a>
+                    </div>
+                    </div>
+
+                    <div class="industry-card">
+                    <span class="category-badge">Logística</span>
+                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800" alt="Logística">
+                    <div class="card-content">
+                        <h3>Transporte y Acopio</h3>
+                        <p>Logística eficiente para el traslado de cosecha.</p>
+                        <a href="#" class="btn-ver">Ver Industria</a>
+                    </div>
+                    </div>
+
+                    <div class="industry-card">
+                    <span class="category-badge">Logística</span>
+                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800" alt="Logística">
+                    <div class="card-content">
+                        <h3>Transporte y Acopio</h3>
+                        <p>Logística eficiente para el traslado de cosecha.</p>
+                        <a href="#" class="btn-ver">Ver Industria</a>
+                    </div>
+                    </div>
+
+                </div>
+
+                <button class="nav-arrow right-arrow" onclick="scrollSlider(1)" aria-label="Siguiente">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+                </div>
+
+                <div class="slider-footer">
+                <a href="#" class="btn-ver-mas-discreto">
+                    Ver todas las industrias <i class="fas fa-arrow-right"></i>
+                </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ---------------------------------------------------------------------------- -->
+        <!-- SECCION 3: EMPRESAS CON SELLO INDUSTRIAL  -->
+        <!-- ---------------------------------------------------------------------------- -->
+        <section class="industrial-modern-section">
+            <div class="container">
+                    
+                <div class="main-industrial-header">
+                    <div class="title-wrapper">
+                        <span class="pre-title">Directorio Verificado</span>
+                        <h2>Empresas con <br><span>Sello Industrial</span></h2>
+                    </div>
+                    <a href="#" class="btn-all-industries">Explorar todo el sector <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="modern-grid">
+                        
+                    <div class="ind-card-modern featured">
+                        <div class="card-img" style="background-image: url('../WEB-AGRO/imagenes/SECTORMETALURGICA.jpg');"></div>
+                        <div class="card-body">
+                            <div class="card-top">
+                                <span class="tag-metal">Metalúrgica</span>
+                                <span class="location-tag"><i class="fas fa-location-dot"></i> Wheelwright</span>
+                            </div>
+                            <h3>Metalúrgica San José</h3>
+                            <p>Ingeniería de vanguardia en estructuras metálicas y naves para el agro.</p>
+                            <div class="card-actions">
+                                <a href="#" class="btn-main">Perfil Oficial</a>
+                                <a href="#" class="btn-icon"><i class="fab fa-whatsapp"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ind-card-modern small">
+                        <div class="card-body">
+                            <div class="card-top">
+                                <span class="tag-tech">Tornería</span>
+                            </div>
+                            <h3>Rectificaciones Norte</h3>
+                            <p>Mantenimiento de alta precisión para motores y maquinaria vial.</p>
+                            <div class="card-footer-mini">
+                                <span class="location-mini">Colón, BA</span>
+                                <a href="#" class="link-arrow"><i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ind-card-modern small">
+                        <div class="card-body">
+                            <div class="card-top">
+                                <span class="tag-agro">Insumos</span>
+                            </div>
+                            <h3>Acopio El Trébol</h3>
+                            <p>Distribución mayorista de fertilizantes y semillas fiscalizadas.</p>
+                            <div class="card-footer-mini">
+                                <span class="location-mini">Wheelwright</span>
+                                <a href="#" class="link-arrow"><i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ind-card-modern featured">
+                        <div class="card-img" style="background-image: url('../WEB-AGRO/imagenes/SECTORINSUMOSYACOPIO.jpg');"></div>
+                        <div class="card-body">
+                            <div class="card-top">
+                                <span class="tag-metal">Maquinaria</span>
+                                <span class="location-tag"><i class="fas fa-location-dot"></i> Venado Tuerto</span>
+                            </div>
+                            <h3>Implementos Agrícolas S.A.</h3>
+                            <p>Concesionario oficial de repuestos y servicio técnico especializado de campo.</p>
+                            <div class="card-actions">
+                                <a href="#" class="btn-main">Ver Repuestos</a>
+                                <a href="#" class="btn-icon"><i class="fab fa-whatsapp"></i></a>
+                            </div>
+                        </div>
+                    </div>          
+
+                </div> 
+            </div> 
+        </section>
+
+        <!-- ---------------------------------------------------------------------------- -->
+        <!-- SECCION 4: Seccion Ferreterías y Repuestos -->
+        <!-- ---------------------------------------------------------------------------- -->
+
+        <section class="taller-section">
+            <div class="container">
+                
+                <div class="taller-header">
+                    <div class="taller-title-box">
+                        <span class="taller-tag">Mantenimiento y Soporte Pesado</span>
+                        <h2>El Corazón <span>del Taller</span></h2>
+                    </div>
+                    <p class="taller-description">Buloneras, tornerías y rectificadoras. La red técnica que garantiza que la maquinaria no se detenga.</p>
+                </div>
+
+                <div class="taller-grid">
+                    
+                    <div class="taller-card">
+                        <div class="taller-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=800" alt="Tornería">
+                            <span class="badge-ind badge-yellow">TORNERÍA</span>
+                        </div>
+                        <div class="taller-card-inner">
+                            <h3>Rectificaciones San José</h3>
+                            <p>Mecanizado de precisión, reparación de ejes y engranajes para cosechadoras.</p>
+                            <ul class="taller-list">
+                                <li><i class="fas fa-location-dot"></i> Parque Industrial Oeste</li>
+                                <li><i class="fas fa-microchip"></i> Tecnología CNC</li>
+                            </ul>
+                            <div class="taller-actions">
+                                <a href="#" class="btn-taller-main">Ver Perfil</a>
+                                <a href="#" class="btn-taller-wpp"><i class="fab fa-whatsapp"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="taller-card">
+                        <div class="taller-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=800" alt="Ferretería">
+                            <span class="badge-ind badge-yellow">FERRETERÍA IND.</span>
+                        </div>
+                        <div class="taller-card-inner">
+                            <h3>Bulonera El Chañar</h3>
+                            <p>Especialistas en fijaciones de alta resistencia, herramientas y máquinas-herramienta.</p>
+                            <ul class="taller-list">
+                                <li><i class="fas fa-location-dot"></i> Av. Colón 450</li>
+                                <li><i class="fas fa-box"></i> Grado 5, 8 y 10.9</li>
+                            </ul>
+                            <div class="taller-actions">
+                                <a href="#" class="btn-taller-main">Consultar Stock</a>
+                                <a href="#" class="btn-taller-wpp"><i class="fab fa-whatsapp"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="taller-card">
+                        <div class="taller-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=800" alt="Ferretería">
+                            <span class="badge-ind badge-yellow">FERRETERÍA IND.</span>
+                        </div>
+                        <div class="taller-card-inner">
+                            <h3>Bulonera El Chañar</h3>
+                            <p>Especialistas en fijaciones de alta resistencia, herramientas y máquinas-herramienta.</p>
+                            <ul class="taller-list">
+                                <li><i class="fas fa-location-dot"></i> Av. Colón 450</li>
+                                <li><i class="fas fa-box"></i> Grado 5, 8 y 10.9</li>
+                            </ul>
+                            <div class="taller-actions">
+                                <a href="#" class="btn-taller-main">Consultar Stock</a>
+                                <a href="#" class="btn-taller-wpp"><i class="fab fa-whatsapp"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="taller-card">
+                        <div class="taller-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=800" alt="Ferretería">
+                            <span class="badge-ind badge-yellow">FERRETERÍA IND.</span>
+                        </div>
+                        <div class="taller-card-inner">
+                            <h3>Bulonera El Chañar</h3>
+                            <p>Especialistas en fijaciones de alta resistencia, herramientas y máquinas-herramienta.</p>
+                            <ul class="taller-list">
+                                <li><i class="fas fa-location-dot"></i> Av. Colón 450</li>
+                                <li><i class="fas fa-box"></i> Grado 5, 8 y 10.9</li>
+                            </ul>
+                            <div class="taller-actions">
+                                <a href="#" class="btn-taller-main">Consultar Stock</a>
+                                <a href="#" class="btn-taller-wpp"><i class="fab fa-whatsapp"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="taller-card">
+                        <div class="taller-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=800" alt="Ferretería">
+                            <span class="badge-ind badge-yellow">FERRETERÍA IND.</span>
+                        </div>
+                        <div class="taller-card-inner">
+                            <h3>Bulonera El Chañar</h3>
+                            <p>Especialistas en fijaciones de alta resistencia, herramientas y máquinas-herramienta.</p>
+                            <ul class="taller-list">
+                                <li><i class="fas fa-location-dot"></i> Av. Colón 450</li>
+                                <li><i class="fas fa-box"></i> Grado 5, 8 y 10.9</li>
+                            </ul>
+                            <div class="taller-actions">
+                                <a href="#" class="btn-taller-main">Consultar Stock</a>
+                                <a href="#" class="btn-taller-wpp"><i class="fab fa-whatsapp"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="taller-card">
+                        <div class="taller-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=800" alt="Ferretería">
+                            <span class="badge-ind badge-yellow">FERRETERÍA IND.</span>
+                        </div>
+                        <div class="taller-card-inner">
+                            <h3>Bulonera El Chañar</h3>
+                            <p>Especialistas en fijaciones de alta resistencia, herramientas y máquinas-herramienta.</p>
+                            <ul class="taller-list">
+                                <li><i class="fas fa-location-dot"></i> Av. Colón 450</li>
+                                <li><i class="fas fa-box"></i> Grado 5, 8 y 10.9</li>
+                            </ul>
+                            <div class="taller-actions">
+                                <a href="#" class="btn-taller-main">Consultar Stock</a>
+                                <a href="#" class="btn-taller-wpp"><i class="fab fa-whatsapp"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="taller-card">
+                        <div class="taller-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&q=80&w=800" alt="Repuestos">
+                            <span class="badge-ind badge-yellow">REPUESTOS</span>
+                        </div>
+                        <div class="taller-card-inner">
+                            <h3>Hidráulica del Agro</h3>
+                            <p>Mangueras de alta presión, retenes, rodamientos y repuestos de línea vial.</p>
+                            <ul class="taller-list">
+                                <li><i class="fas fa-location-dot"></i> Ruta 8, Km 300</li>
+                                <li><i class="fas fa-truck-fast"></i> Envíos Urgentes</li>
+                            </ul>
+                            <div class="taller-actions">
+                                <a href="#" class="btn-taller-main">Catálogo</a>
+                                <a href="#" class="btn-taller-wpp"><i class="fab fa-whatsapp"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="taller-footer-action">
+                    <a href="#" class="btn-sector-more">
+                        Explorar Directorio Completo <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ---------------------------------------------------------------------------- -->
+        <!-- SECCION 5: : Seccion Logística y Servicios Profesionales -->
+        <!-- ---------------------------------------------------------------------------- -->
+        <section class="profesionales-section">
+            <div class="container">
+                
+                <div class="profesionales-header">
+                    <span class="tag-sober">Gestión y Respaldo</span>
+                    <h2>Servicios <span>Profesionales</span></h2>
+                    <p>El soporte administrativo y logístico que tu empresa agroindustrial necesita.</p>
+                </div>
+
+                <div class="profesionales-grid">
+                    
+                    <div class="premium-service-card">
+                        <div class="service-category">Seguros Agrícolas</div>
+                        <div class="service-content">
+                            <h3>Organización Seguros Rivadavia</h3>
+                            <p>Especialistas en granizo, multirriesgo y seguros de flota para maquinaria pesada.</p>
+                            <div class="service-badges">
+                                <span><i class="fas fa-shield-halved"></i> Verificado</span>
+                                <span><i class="fas fa-clock"></i> 24hs Emergencias</span>
+                            </div>
+                        </div>
+                        <div class="service-footer">
+                            <a href="https://wa.me/tu-numero" class="btn-whatsapp-premium">
+                                <i class="fab fa-whatsapp"></i> Contactar Asesor
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="premium-service-card">
+                        <div class="service-category">Estudio Contable</div>
+                        <div class="service-content">
+                            <h3>Estudio Impositivo Arrieta</h3>
+                            <p>Asesoramiento fiscal especializado en exportación de granos y liquidación de sueldos rurales.</p>
+                            <div class="service-badges">
+                                <span><i class="fas fa-file-invoice-dollar"></i> Agro-Especialista</span>
+                            </div>
+                        </div>
+                        <div class="service-footer">
+                            <a href="https://wa.me/tu-numero" class="btn-whatsapp-premium">
+                                <i class="fab fa-whatsapp"></i> Consultar ahora
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="premium-service-card">
+                        <div class="service-category">Logística y Fletes</div>
+                        <div class="service-content">
+                            <h3>Transporte El Chañar</h3>
+                            <p>Logística de media y larga distancia. Movimiento de granos y maquinaria agrícola a todo el país.</p>
+                            <div class="service-badges">
+                                <span><i class="fas fa-truck"></i> Satelital</span>
+                                <span><i class="fas fa-box"></i> Carga Crítica</span>
+                            </div>
+                        </div>
+                        <div class="service-footer">
+                            <a href="https://wa.me/tu-numero" class="btn-whatsapp-premium">
+                                <i class="fab fa-whatsapp"></i> Pedir Cotización
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="premium-service-card">
+                        <div class="service-category">Ingeniería Agrónoma</div>
+                        <div class="service-content">
+                            <h3>Consultora AgroTech</h3>
+                            <p>Monitoreo de lotes, recetas agronómicas y gestión eficiente de recursos hídricos.</p>
+                            <div class="service-badges">
+                                <span><i class="fas fa-seedling"></i> Sustentable</span>
+                            </div>
+                        </div>
+                        <div class="service-footer">
+                            <a href="https://wa.me/tu-numero" class="btn-whatsapp-premium">
+                                <i class="fab fa-whatsapp"></i> Hablar con el Ingeniero
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ---------------------------------------------------------------------------- -->
+        <!-- SECCION 6: : Puente hacia la "Madre"  -->
+        <!-- ---------------------------------------------------------------------------- -->
+        <section class="nexo-bridge-banner">
+            <div class="container">
+                <div class="nexo-wrapper">
+                        
+                    <div class="nexo-text">
+                        <div class="nexo-icon">
+                            <i class="fas fa-info-circle"></i>
+                        </div>
+                        <div class="nexo-info">
+                            <h3>¿No encontrás lo que buscás?</h3>
+                            <p>Si buscás un comercio de rubro general (ropa, hogar, servicios urbanos), visita nuestra plataforma principal.</p>
+                        </div>
+                    </div>
+
+                    <div class="nexo-action">
+                        <a href="https://comerciantes.com.ar" class="btn-nexo-primary" target="_blank">
+                            Ir a <span>Comerciantes.com.ar</span> <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ---------------------------------------------------------------------------- -->
+        <!-- SECCION 7: : CTA INDUSTRIAL FINAL -->
+        <!-- ---------------------------------------------------------------------------- -->
+
+        <section class="cta-industrial-final">
+            <div class="container">
+                <div class="cta-industrial-box">
+                    
+                    <div class="cta-content">
+                        <span class="cta-pre">Oportunidad de Negocio</span>
+                        <h2>Tu Agroindustria <br><span>merece estar acá</span></h2>
+                        <p>Unite a la red de <strong>ZENDEV</strong> y posicioná tu empresa frente a los principales productores y contratistas de la región.</p>
+                    </div>
+
+                    <div class="cta-action">
+                        <a href="#" class="btn-cta-yellow">Formar parte ahora <i class="fas fa-rocket"></i></a>
+                        <span class="cta-note">Más de 500 empresas ya confían en nosotros</span>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <script>
+            function scrollSlider(direction) {
+                const wrapper = document.getElementById('sliderWrapper');
+                const card = wrapper.querySelector('.industry-card');
+                
+                if (card) {
+                    // Calculamos el ancho real + el gap (espacio entre tarjetas)
+                    const style = window.getComputedStyle(wrapper);
+                    const gap = parseInt(style.columnGap) || 20;
+                    const scrollAmount = card.offsetWidth + gap;
+                    
+                    wrapper.scrollBy({
+                        left: direction * scrollAmount,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        </script>
+    </body>
+</html>

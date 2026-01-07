@@ -1,0 +1,1359 @@
+/* ---------------------------------------------------------------------------- */
+/* RESET Y VARIABLES */
+/* ---------------------------------------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Paleta Principal Agro */
+    --verde-agro: #2D5A27;
+    --verde-oscuro: #1E3D1A;
+    --amarillo-maquinaria: #ffa000;
+    --negro-industrial: #1A1A1A;
+    --gris-claro: #F4F4F4;
+    --blanco: #FFFFFF;
+    
+    /* Variables de UI */
+    --fuente: 'Montserrat', sans-serif;
+    --transition: all 0.3s ease;
+    --shadow-soft: 0 4px 15px rgba(0,0,0,0.05);
+    --shadow-strong: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+body {
+    font-family: var(--fuente);
+    line-height: 1.6;
+    color: var(--negro-industrial);
+    background-color: var(--blanco);
+    overflow-x: hidden;
+}
+
+.container {
+    width: 90%;
+    max-width: 1300px; /* Evita que en monitores muy grandes se estire demasiado */
+    margin: 0 auto;    /* Centra el bloque horizontalmente */
+    padding: 0 15px;   /* Evita que el texto toque los bordes en celulares */
+    box-sizing: border-box;
+}
+
+/* Ajuste para la sección del slider que usa una clase distinta */
+.container-slider-extra {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* ---------------------------------------------------------------------------- */
+/* SECCION 0: TOPBAR Y HEADER */
+/* ---------------------------------------------------------------------------- */
+.topbar-nexo {
+    background-color: var(--negro-industrial);
+    color: #AAAAAA;
+    text-align: center;
+    padding: 8px;
+    font-size: 0.75em;
+    letter-spacing: 0.5px;
+}
+
+.topbar-nexo a {
+    color: var(--amarillo-maquinaria);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.topbar-nexo a:hover { color: var(--blanco); }
+
+.main-header {
+    background: var(--blanco);
+    height: 75px; /* Altura un poco más estilizada */
+    display: flex;
+    align-items: center;
+    border-bottom: 3px solid var(--amarillo-maquinaria);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.header-container {
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* CENTRADO VERTICAL PERFECTO */
+}
+
+.logo {
+    font-size: 1.4em;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+}
+
+.logo-agro { color: var(--verde-agro); }
+.logo-comercios { color: var(--negro-industrial); }
+
+.nav-menu ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+    align-items: center; /* CENTRADO VERTICAL DE LOS LINKS */
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--negro-industrial);
+    font-size: 0.9em;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.nav-menu a:hover { color: var(--verde-agro); }
+
+.btn-register {
+    background-color: var(--verde-agro);
+    color: var(--blanco) !important;
+    padding: 10px 20px; /* Tamaño equilibrado */
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.8em;
+    font-weight: 600;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-register:hover {
+    background-color: var(--verde-oscuro);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(45, 90, 39, 0.2);
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 1.4rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--negro-industrial);
+}
+
+/* ---------------------------------------------------------------------------- */
+/* SECCION 1: HERO */
+/* ---------------------------------------------------------------------------- */
+.hero-section {
+    position: relative;
+    min-height: 80vh;
+    background-image: url('../imagenes/BannerAgro.jpg'); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(135deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 100%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 950px;
+    text-align: center;
+    color: var(--blanco);
+}
+
+.hero-content h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: 15px;
+    font-weight: 700;
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+.hero-content h1 span { color: var(--amarillo-maquinaria); }
+
+.hero-subtitle {
+    font-size: clamp(0.95rem, 1.5vw, 1.2rem);
+    margin-bottom: 45px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* BUSCADOR */
+.search-box {
+    background: var(--blanco);
+    border: 2px solid var(--amarillo-maquinaria);
+    border-radius: 60px;
+    display: flex;
+    padding: 6px; /* Espacio mínimo para que el botón luzca integrado */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.search-box:focus-within { transform: translateY(-4px); }
+
+.search-input, .search-location {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 8px 20px;
+}
+
+.search-input { border-right: 1px solid #EEE; }
+
+.search-box i { color: var(--verde-agro); margin-right: 12px; font-size: 1rem; }
+
+.search-box input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-family: var(--fuente);
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.btn-search {
+    background: var(--verde-agro);
+    color: var(--blanco);
+    border: none;
+    padding: 12px 30px; 
+    border-radius: 50px;
+    cursor: pointer;
+    font-family: var(--fuente);
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.btn-search:hover {
+    background: var(--verde-oscuro);
+    transform: scale(1.03);
+}
+
+/* ETIQUETAS (PILLS) */
+.category-pills {
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.pill {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    color: var(--blanco);
+    padding: 10px 24px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.pill:hover {
+    background: var(--amarillo-maquinaria);
+    color: var(--negro-industrial);
+    border-color: var(--amarillo-maquinaria);
+    transform: translateY(-3px);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 992px) {
+    .menu-toggle { display: block; }
+    
+    .nav-menu {
+        position: fixed;
+        top: 75px; left: -100%; width: 100%;
+        background: var(--blanco); height: calc(100vh - 75px);
+        transition: 0.4s ease-in-out;
+        z-index: 999;
+    }
+
+    .nav-menu.active { left: 0; }
+
+    .nav-menu ul {
+        flex-direction: column;
+        padding: 50px 30px;
+        gap: 25px;
+        align-items: flex-start;
+    }
+
+    .header-actions { display: none; }
+    .mobile-only { display: block; width: 100%; }
+    .mobile-only .btn-register { width: fit-content; }
+
+    .search-box {
+        flex-direction: column;
+        border-radius: 20px;
+        padding: 15px;
+    }
+
+    .search-input { border-right: none; border-bottom: 1px solid #EEE; padding-bottom: 15px; }
+    .search-location { padding-top: 15px; }
+    
+    .btn-search { width: 100%; margin-top: 15px; border-radius: 12px; padding: 15px; }
+}
+
+/* ---------------------------------------------------------------------------- */
+/* SECCION 2: EMPRESAS DESTACADAS */
+/* ---------------------------------------------------------------------------- */
+
+.industrias-slider {
+  padding: 80px 0;
+  background-color: #f4f7f6;
+  position: relative;
+}
+
+.container-slider-extra {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* Encabezado */
+.slider-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.slider-header h2 {
+  font-size: 1.8rem; /* Tamaño mucho más moderado */
+  color: #333;
+  font-weight: 700;
+  margin: 0;
+}
+
+.slider-header h2 span {
+  color: var( --verde-agro);
+}
+
+.slider-header p {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+/* Contenedor del Slider */
+.slider-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.slider-wrapper {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto; /* Permite scroll en móvil */
+  scroll-behavior: smooth;
+  padding: 20px 0;
+  width: 100%;
+  scrollbar-width: none; /* Oculta barra en Firefox */
+  scroll-snap-type: x mandatory; /* Fuerza a que la tarjeta se detenga en un punto justo */
+}
+
+.slider-wrapper::-webkit-scrollbar {
+  display: none; /* Oculta barra en Chrome/Safari */
+}
+
+/* Tarjeta: 4 por pantalla */
+.industry-card {
+  flex: 0 0 calc(25% - 15px);
+  height: 450px;
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  transition: var(--transition);
+  scroll-snap-align: start; /* Alinea la tarjeta al inicio de la pantalla al deslizar */
+}
+
+.industry-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.industry-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.industry-card:hover img {
+  transform: scale(1.1);
+}
+
+.category-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background-color: var(--amarillo-maquinaria);
+  color: #000;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  z-index: 5;
+}
+
+.card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 25px 20px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.9));
+  color: var(--blanco);
+}
+
+.card-content h3 { margin-bottom: 8px; font-size: 1.25rem; }
+.card-content p { font-size: 0.9rem; margin-bottom: 20px; opacity: 0.9; }
+
+.btn-ver {
+  display: inline-block;
+  padding: 8px 15px;
+  background-color: var(--verde-agro);
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+/* Flechas Finas y Pequeñas */
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #444;
+  font-size: 1.8rem;
+  cursor: pointer;
+  z-index: 10;
+  transition: var(--transition);
+  padding: 10px;
+}
+
+.nav-arrow:hover {
+  color: var(--verde-oscuro);
+  transform: translateY(-50%) scale(1.2);
+}
+
+.left-arrow { left: -50px; }
+.right-arrow { right: -50px; }
+
+/* Botón Ver Más Discreto */
+.slider-footer {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.btn-ver-mas-discreto {
+  display: inline-block;
+  padding: 12px 30px;
+  color: #666;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  transition: var(--transition);
+}
+
+.btn-ver-mas-discreto:hover {
+  border-color: var(--verde-oscuro);
+  color: var(--verde-oscuro);
+  background: white;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1500px) {
+  .left-arrow { left: 5px; color: white; text-shadow: 0 0 10px rgba(0,0,0,0.5); }
+  .right-arrow { right: 5px; color: white; text-shadow: 0 0 10px rgba(0,0,0,0.5); }
+}
+
+@media (max-width: 1024px) {
+  .industry-card { flex: 0 0 calc(50% - 10px); }
+}
+
+@media (max-width: 600px) {
+  .slider-header h2 { font-size: 1.8rem; }
+  .industry-card { flex: 0 0 85%; }
+  .nav-arrow { display: none; }
+  .container-slider-extra { padding: 0 15px; }
+}
+
+/* ---------------------------------------------------------------------------- */
+/* SECCION 3: EMPRESAS CON SELLO INDUSTRIAL */
+/* ---------------------------------------------------------------------------- */
+.industrial-modern-section {
+    padding: 80px 0;
+    background-color: #f8f9fa;
+}
+
+/* --- ENCABEZADO Y TITULO --- */
+.main-industrial-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 3px solid #eee;
+    position: relative;
+}
+
+.main-industrial-header::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background-color: var(--amarillo-maquinaria);
+}
+
+.pre-title {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--verde-agro);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+.main-industrial-header h2 {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--negro-industrial);
+    text-transform: uppercase;
+    line-height: 0.9;
+    letter-spacing: -1px;
+}
+
+.main-industrial-header h2 span {
+    color: var(--verde-agro);
+    font-size: 1.8rem;
+    font-weight: 400;
+}
+
+.btn-all-industries {
+    text-decoration: none;
+    color: #888;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    padding-bottom: 5px;
+}
+
+.btn-all-industries i {
+    margin-left: 8px;
+    font-size: 0.7rem;
+    transition: transform 0.3s ease;
+}
+
+.btn-all-industries:hover { color: var(--negro-industrial); }
+.btn-all-industries:hover i { transform: translateX(5px); }
+
+/* --- GRILLA DINÁMICA --- */
+.modern-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-flow: dense;
+    gap: 15px;
+}
+
+.ind-card-modern {
+    background: var(--blanco);
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    min-height: 195px;
+    transition: all 0.3s ease;
+}
+
+.ind-card-modern:hover {
+    transform: translateY(-4px);
+    border-color: var(--amarillo-maquinaria);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+
+/* --- TAMAÑOS DE TARJETAS --- */
+.ind-card-modern.featured {
+    grid-column: span 2;
+    grid-row: span 1;
+    flex-direction: row;
+}
+
+.ind-card-modern.small {
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+/* --- CONTENIDO INTERNO --- */
+.featured .card-img {
+    width: 35%;
+    min-height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.featured .card-body { width: 65%; }
+
+.card-body {
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.ind-card-modern h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: var(--negro-industrial);
+}
+
+.ind-card-modern p {
+    font-size: 0.82rem;
+    color: #666;
+    line-height: 1.3;
+    margin-bottom: 10px;
+}
+
+/* --- ETIQUETAS --- */
+.tag-metal, .tag-tech, .tag-agro {
+    font-size: 0.6rem;
+    font-weight: 800;
+    padding: 3px 8px;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
+
+.tag-metal { background: var(--amarillo-maquinaria); color: #000; }
+.tag-tech { background: #f2f2f2; color: #555; }
+.tag-agro { background: var(--verde-agro); color: #fff; }
+
+.location-tag, .location-mini { font-size: 0.7rem; color: #999; }
+
+/* --- ACCIONES --- */
+.card-actions { display: flex; gap: 8px; margin-top: auto; }
+
+.btn-main {
+    background: var(--negro-industrial);
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 8px 14px;
+    border-radius: 4px;
+}
+
+.btn-icon {
+    width: 32px;
+    height: 32px;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    color: #25D366;
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+.card-footer-mini {
+    margin-top: auto;
+    padding-top: 10px;
+    border-top: 1px solid #f5f5f5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.link-arrow { color: var(--verde-agro); font-size: 0.8rem; }
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+    .modern-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+    .main-industrial-header { 
+        flex-direction: column; 
+        align-items: flex-start;
+        gap: 15px; 
+    }
+    
+    .btn-all-industries {
+        margin-top: 10px;
+        padding-left: 0;
+    }
+
+    .main-industrial-header h2 { font-size: 1.8rem; }
+    
+    .ind-card-modern { min-height: auto; } 
+
+    .ind-card-modern.featured { 
+        grid-column: span 1; 
+        flex-direction: column; 
+        height: auto;
+    }
+    
+    .featured .card-img { 
+        width: 100%; 
+        height: 180px; 
+        min-height: 180px; 
+    } 
+    
+    .featured .card-body { 
+        width: 100%; 
+        height: auto; 
+    }
+    
+    .modern-grid { grid-template-columns: 1fr; }
+
+    .btn-view-more-industrial {
+        width: 100%; /* El botón ocupa todo el ancho en móvil */
+        text-align: center;
+    }
+}
+
+/* ---------------------------------------------------------------------------- */
+/* SECCION 4: SECCION FERRETERIAS Y REPUESTOS */
+/* ---------------------------------------------------------------------------- */
+
+.taller-section {
+    padding: 80px 0;
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.taller-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.taller-tag {
+    background-color: #FFCC00;
+    color: #000;
+    padding: 4px 10px;
+    font-weight: 800;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    border-radius: 2px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.taller-header h2 {
+    font-size: 2.2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+.taller-header h2 span {
+    color: #FFCC00;
+}
+
+.taller-description {
+    color: #888;
+    max-width: 600px;
+    margin: 15px auto 0;
+    font-size: 0.95rem;
+}
+
+/* --- GRILLA DE 5 COLUMNAS --- */
+.taller-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+}
+
+.taller-card {
+    background-color: #1e1e1e;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid #333;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.taller-card:hover {
+    transform: translateY(-5px);
+    border-color: #FFCC00;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+}
+
+/* --- IMAGEN Y BADGE --- */
+.taller-img-wrapper {
+    position: relative;
+    height: 120px;
+    overflow: hidden;
+}
+
+.taller-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(40%);
+    transition: 0.5s ease;
+}
+
+.taller-card:hover .taller-img-wrapper img {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+}
+
+.badge-ind {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    padding: 3px 6px;
+    font-size: 0.55rem;
+    font-weight: 900;
+    border-radius: 2px;
+    text-transform: uppercase;
+    z-index: 2;
+}
+
+.badge-yellow { background-color: #FFCC00; color: #000; }
+.badge-green { background-color: #2D5A27; color: #fff; }
+
+/* --- CUERPO DE LA TARJETA --- */
+.taller-card-inner {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.taller-card h3 {
+    font-size: 0.9rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.taller-card p {
+    font-size: 0.75rem;
+    color: #aaa;
+    line-height: 1.4;
+    margin-bottom: 12px;
+    height: 32px;
+    overflow: hidden;
+}
+
+.taller-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 15px;
+    border-top: 1px solid #333;
+    padding-top: 10px;
+}
+
+.taller-list li {
+    font-size: 0.68rem;
+    color: #ccc;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.taller-list li i {
+    color: #FFCC00;
+    font-size: 0.6rem;
+}
+
+/* --- ACCIONES (BOTONES) --- */
+.taller-actions {
+    display: flex;
+    gap: 6px;
+    margin-top: auto;
+}
+
+.btn-taller-main {
+    flex: 1;
+    background-color: #FFCC00;
+    color: #000;
+    text-decoration: none !important;
+    padding: 0 5px;
+    font-size: 0.6rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    transition: 0.3s;
+}
+
+.btn-taller-wpp {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    background-color: transparent;
+    border: 1px solid #25d366;
+    color: #25d366;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    font-size: 0.85rem;
+    transition: 0.3s;
+    /* Elimina cualquier línea o subrayado */
+    text-decoration: none !important;
+    box-shadow: none !important;
+}
+
+.btn-taller-main:hover { background-color: #fff; }
+.btn-taller-wpp:hover { background-color: #25d366; color: #fff; }
+
+/* --- BOTÓN FINAL: EXPLORAR SECTOR --- */
+.taller-footer-action {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.btn-sector-more {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #FFCC00;
+    text-decoration: none !important;
+    font-size: 0.85rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    transition: all 0.4s ease;
+}
+
+.btn-sector-more i {
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+}
+
+.btn-sector-more:hover {
+    background-color: #FFCC00;
+    color: #000;
+    box-shadow: 0 0 15px rgba(255, 204, 0, 0.3);
+}
+
+.btn-sector-more:hover i {
+    transform: translateX(5px);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1200px) {
+    .taller-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 800px) {
+    .taller-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 500px) {
+    .taller-grid { grid-template-columns: 1fr; }
+    .btn-sector-more { width: 100%; }
+}
+/* ---------------------------------------------------------------------------- */
+/* SECCION 5: LOGÍSTICA Y SERVICIOS PROFESIONALES */
+/* ---------------------------------------------------------------------------- */
+
+.profesionales-section {
+    padding: 90px 0;
+    background-color: #fcfcfc; /* Casi blanco, muy limpio */
+}
+
+.profesionales-header {
+    margin-bottom: 50px;
+}
+
+.tag-sober {
+    color: #64748b; /* Azul grisáceo */
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.profesionales-header h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #1e293b; /* Azul marino profundo */
+}
+
+.profesionales-header h2 span {
+    color: var(--verde-agro);
+}
+
+.profesionales-header p {
+    color: #64748b;
+    font-size: 1.1rem;
+}
+
+/* --- GRILLA PREMIUM --- */
+.profesionales-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2x2 para que se vea como lista premium */
+    gap: 25px;
+}
+
+.premium-service-card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.premium-service-card:hover {
+    border-color: var(--verde-agro);
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+}
+
+.service-category {
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--verde-agro);
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.premium-service-card h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 12px;
+}
+
+.premium-service-card p {
+    font-size: 0.95rem;
+    color: #475569;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+/* BADGES DE SERVICIO */
+.service-badges {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.service-badges span {
+    background: #f1f5f9;
+    color: #475569;
+    font-size: 0.7rem;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.service-badges i {
+    margin-right: 5px;
+    color: #94a3b8;
+}
+
+/* --- BOTÓN WHATSAPP PREMIUM --- */
+.btn-whatsapp-premium {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: #25D366;
+    color: #fff;
+    text-decoration: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.btn-whatsapp-premium:hover {
+    background-color: #128C7E;
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .profesionales-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .premium-service-card {
+        padding: 20px;
+    }
+}
+/* ---------------------------------------------------------------------------- */
+/* SECCION 6: BANNER NEXO ESTRATÉGICO */
+/* ---------------------------------------------------------------------------- */
+
+.nexo-bridge-banner {
+    background-color: #ffffff;
+    padding: 50px 0;
+    /* La línea divisoria verde que mencionaste */
+    border-top: 5px solid var(--verde-agro); 
+    border-bottom: 1px solid #eee;
+}
+
+.nexo-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+.nexo-text {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    max-width: 60%;
+}
+
+.nexo-icon {
+    font-size: 2.5rem;
+    color: var(--verde-agro);
+    opacity: 0.8;
+}
+
+.nexo-info h3 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--negro-industrial);
+    margin-bottom: 5px;
+}
+
+.nexo-info p {
+    font-size: 0.95rem;
+    color: #666;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* --- BOTÓN NEXO --- */
+.btn-nexo-primary {
+    display: inline-block;
+    background-color: transparent;
+    border: 2px solid var(--negro-industrial);
+    color: var(--negro-industrial);
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.btn-nexo-primary span {
+    color: var(--verde-agro); /* Resaltamos la marca */
+}
+
+.btn-nexo-primary i {
+    margin-left: 10px;
+    font-size: 0.8rem;
+}
+
+.btn-nexo-primary:hover {
+    background-color: var(--negro-industrial);
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 991px) {
+    .nexo-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nexo-text {
+        flex-direction: column;
+        max-width: 100%;
+    }
+
+    .nexo-info h3 { font-size: 1.25rem; }
+    
+    .btn-nexo-primary {
+        width: 100%;
+        text-align: center;
+    }
+}
+/* ---------------------------------------------------------------------------- */
+/* SECCION 7: CTA INDUSTRIAL FINAL */
+/* ---------------------------------------------------------------------------- */
+
+.cta-industrial-final {
+    padding: 80px 0;
+    background-color: #f8f9fa; /* Fondo neutro para que resalte la caja */
+}
+
+.cta-industrial-box {
+    background-color: #064e3b; /* Verde Muy Oscuro (Forest Green) */
+    border-radius: 24px;
+    padding: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(6, 78, 59, 0.2);
+}
+
+/* Decoración sutil de fondo */
+.cta-industrial-box::after {
+    content: 'ZENDEV';
+    position: absolute;
+    right: -20px;
+    bottom: -20px;
+    font-size: 8rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.03);
+    pointer-events: none;
+}
+
+.cta-content {
+    max-width: 60%;
+    position: relative;
+    z-index: 1;
+}
+
+.cta-pre {
+    color: var(--amarillo-maquinaria);
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.cta-content h2 {
+    color: #ffffff;
+    font-size: 3rem;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.cta-content h2 span {
+    color: var(--amarillo-maquinaria);
+}
+
+.cta-content p {
+    color: #d1fae5;
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+/* --- ACCIÓN --- */
+.cta-action {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+.btn-cta-yellow {
+    background-color: var(--amarillo-maquinaria);
+    color: #000;
+    text-decoration: none;
+    padding: 20px 45px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn-cta-yellow:hover {
+    background-color: #ffffff;
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+}
+
+.cta-note {
+    color: #6ee7b7;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 991px) {
+    .cta-industrial-box {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 30px;
+    }
+
+    .cta-content {
+        max-width: 100%;
+    }
+
+    .cta-content h2 {
+        font-size: 2.2rem;
+    }
+
+    .btn-cta-yellow {
+        width: 100%;
+        justify-content: center;
+    }
+}
